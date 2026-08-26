@@ -75,16 +75,19 @@ int main()
 
         step(&cpu_register);
 
+        // print register output
         printf("  CPU Registers -> A: $%02X  X: $%02X  Y: $%02X  SP: $%02X  "
                "PC: $%04X\n",
                cpu_register.accumulator, cpu_register.x_index, cpu_register.y_index,
                cpu_register.stack_pointer, cpu_register.program_counter);
 
+        // print status flags
         printf("  Status Flags  -> N: %d  V: %d  Z: %d  C: %d\n",
                cpu_register.status_register.negative,
                cpu_register.status_register.overflow,
                cpu_register.status_register.zero, cpu_register.status_register.carry);
 
+        // print clock cycles
         printf("  System Timeline Clock Cycles: %llu\n\n", sys_clock_cycles);
     }
 
