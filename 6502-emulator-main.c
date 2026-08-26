@@ -25,7 +25,7 @@ static inline uint16_t get_abs_address(struct CPURegister* cpu_register);
 static inline uint16_t get_zpg_address(struct CPURegister* cpu_register);
 static inline uint16_t get_zpg_x_address(struct CPURegister* cpu_register);
 static inline uint16_t get_zpg_y_address(struct CPURegister* cpu_register);
-static inline void exec_brnch_if(struct CPURegister* cpu_register, int condit);
+void exec_brnch_if(struct CPURegister* cpu_register, int condit);
 static inline void update_nz_flags(struct CPURegister* cpu_register, uint8_t val);
 
 int main()
@@ -145,7 +145,7 @@ static inline void update_nz_flags(struct CPURegister* cpu_register, uint8_t val
 }
 
 // helper for executing conditional branches
-static inline void exec_brnch_if(struct CPURegister* cpu_register, int condit)
+void exec_brnch_if(struct CPURegister* cpu_register, int condit)
 {
     // not uint8_t because offset cannot be negative and honestly shouldnt be
     int8_t offset = (int8_t)fetch_byte(cpu_register);
