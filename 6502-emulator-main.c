@@ -150,8 +150,8 @@ static inline void update_nz_flags(struct CPURegister* cpu_register, uint8_t val
 // helper for executing conditional branches
 void exec_brnch_if(struct CPURegister* cpu_register, int condit)
 {
-    // not uint8_t because offset cannot be negative and honestly shouldnt be
-    int8_t offset = (int8_t)fetch_byte(cpu_register);
+    // uint8_t because offset cannot be negative
+    uint8_t offset = (int8_t)fetch_byte(cpu_register);
 
     if (condit)
     {
